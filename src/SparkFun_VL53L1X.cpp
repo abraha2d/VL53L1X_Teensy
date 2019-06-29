@@ -3,7 +3,7 @@
 #include "SparkFun_VL53L1X.h"
 #include "vl53l1x_class.h"
 
-SFEVL53L1X::SFEVL53L1X(TwoWire &i2cPort, int shutdownPin, int interruptPin)
+SFEVL53L1X::SFEVL53L1X(i2c_t3 &i2cPort, int shutdownPin, int interruptPin)
 {
 	_i2cPort = &i2cPort;
 	_shutdownPin = shutdownPin;

@@ -14,7 +14,7 @@
   Are you getting weird readings? Make sure the vacuum tape has been removed.
 
 */
-#include <Wire.h>
+#include <i2c_t3.h>
 #include "SparkFun_VL53L1X.h"
 #include <SoftwareSerial.h>
 

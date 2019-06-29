@@ -19,7 +19,7 @@
   Are you getting weird readings? Be sure the vacuum tape has been removed from the sensor.
 */
 
-#include <Wire.h>
+#include <i2c_t3.h>
 #include "SparkFun_VL53L1X.h"
 
 //Optional interrupt and shutdown pins.

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Arduino.h"
-#include "Wire.h"
+#include "i2c_t3.h"
 #include "RangeSensor.h"
 #include "vl53l1_error_codes.h"
 #include "vl53l1x_class.h"
@@ -9,7 +9,7 @@
 class SFEVL53L1X
 {
 	public:
-	SFEVL53L1X(TwoWire &i2cPort = Wire, int shutdownPin = -1, int interruptPin = -1); //Constructs our Distance sensor without an interrupt or shutdown pin
+	SFEVL53L1X(i2c_t3 &i2cPort = Wire, int shutdownPin = -1, int interruptPin = -1); //Constructs our Distance sensor without an interrupt or shutdown pin
 	bool init(); //Deprecated version of begin
 	bool begin(); //Initialization of sensor
 	bool checkID(); //Check the ID of the sensor, returns true if ID is correct
@@ -64,7 +64,7 @@ class SFEVL53L1X
 	void calibrateOffset(uint16_t targetDistanceInMm); //Autocalibrate the offset by placing a target a known distance away from the sensor and passing this known distance into the function.
 	void calibrateXTalk(uint16_t targetDistanceInMm); //Autocalibrate the crosstalk by placing a target a known distance away from the sensor and passing this known distance into the function.
 	private:
-	TwoWire *_i2cPort;
+	i2c_t3 *_i2cPort;
 	int _shutdownPin;
 	int _interruptPin;
 	int _i2cAddress = 0x52;
