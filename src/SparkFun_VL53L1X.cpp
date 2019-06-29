@@ -3,12 +3,13 @@
 #include "SparkFun_VL53L1X.h"
 #include "vl53l1x_class.h"
 
-SFEVL53L1X::SFEVL53L1X(i2c_t3 &i2cPort, int shutdownPin, int interruptPin)
+SFEVL53L1X::SFEVL53L1X(i2c_t3 &i2cPort, uint8_t i2cAddress, int shutdownPin, int interruptPin)
 {
 	_i2cPort = &i2cPort;
+	_i2cAddress = i2cAddress;
 	_shutdownPin = shutdownPin;
 	_interruptPin = interruptPin;
-	_device = new VL53L1X(&i2cPort, shutdownPin, interruptPin);
+	_device = new VL53L1X(&i2cPort, shutdownPin, interruptPin, i2cAddress);
 }
 
 bool SFEVL53L1X::init()

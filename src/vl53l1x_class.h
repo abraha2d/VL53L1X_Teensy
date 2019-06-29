@@ -136,9 +136,9 @@ class VL53L1X : public RangeSensor
      * @param[in] &pin_gpio1 pin Mbed InterruptIn PinName to be used as component GPIO_1 INT
      * @param[in] DevAddr device address, 0x52 by default
      */
-    VL53L1X(i2c_t3 *i2c, int pin, int pin_gpio1) : RangeSensor(), dev_i2c(i2c), gpio0(pin), gpio1Int(pin_gpio1)
+    VL53L1X(i2c_t3 *i2c, int pin, int pin_gpio1, uint8_t DevAddr = VL53L1X_DEFAULT_DEVICE_ADDRESS) : RangeSensor(), dev_i2c(i2c), gpio0(pin), gpio1Int(pin_gpio1)
     {
-       MyDevice.I2cDevAddr=VL53L1X_DEFAULT_DEVICE_ADDRESS;
+       MyDevice.I2cDevAddr=DevAddr;
        MyDevice.I2cHandle = i2c;
        Device = &MyDevice;
        if(gpio0 >= 0)
