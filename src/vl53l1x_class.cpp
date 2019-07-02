@@ -748,9 +748,9 @@ VL53L1X_ERROR VL53L1X::VL53L1X_SetROI(uint16_t X, uint16_t Y)
 		X = 16;
 	if (Y > 16)
 		Y = 16;
-	if (X > 10 || Y > 10){
+	// if (X > 10 || Y > 10){
 		OpticalCenter = 199;
-	}
+	// }
 	status = VL53L1_WrByte(Device, ROI_CONFIG__USER_ROI_CENTRE_SPAD, OpticalCenter);
 	status = VL53L1_WrByte(Device, ROI_CONFIG__USER_ROI_REQUESTED_GLOBAL_XY_SIZE,
 		       (Y - 1) << 4 | (X - 1));
